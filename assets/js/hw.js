@@ -50,7 +50,7 @@ $(document).ready(function() {
 		displayGIPHY($(this).attr("data-name"));
 	})
 
-	$(document).on("click", ".GIF", function(){
+	$(document).on("click", ".gif", function(){
 		var state = $(this).attr("data-state");
 		if (state === "still") {
 			$(this).attr("src", $(this).attr("data-animated")).attr("data-state", "animated");
