@@ -28,7 +28,7 @@ $(document).ready(function() {
 			$.each(response.data, function (j, val2) {
 				var colDiv = $("<div class='col-4 mt-4'>");
 				var ratingP = $("<p>").text("Rating: " + response.data[j].rating.toUpperCase());
-				var imgGIF = $("<img>").addClass("GIF").attr("src", response.data[j].images.fixed_height_still.url).attr("id", "gif" + j, "alt", "GIF" + j).attr("data-state", "still").attr("data-still", response.data[j].images.fixed_height_still.url).attr("data-animated", response.data[j].images.fixed_height.url);
+				var imgGIF = $("<img>").addClass("gif").attr("src", response.data[j].images.fixed_height_still.url).attr("id", "gif" + j, "alt", "GIF" + j).attr("data-state", "still").attr("data-still", response.data[j].images.fixed_height_still.url).attr("data-animated", response.data[j].images.fixed_height.url);
 				colDiv.html(ratingP);
 				colDiv.append(imgGIF);
 				rowDiv.append(colDiv);
