@@ -1,10 +1,13 @@
 $(document).ready(function() {
 
+	
+
 	var arrMovies = ["Reservoir Dogs", "Pulp Fiction", "Jackie Brown", "Kill Bill", "Inglourious Basterds", "Django Unchained"];
 
 	function loading() {
 		$.each(arrMovies, function (i, val) {
 			$("#buttonContainer").append($("<button>").addClass("movieButtons").attr("data-name", val).text(val));
+			$("body").css("background-color", randomColor());
 		})
 	}
 
@@ -17,6 +20,7 @@ $(document).ready(function() {
 			$("#movieRating").append("<span id='rtRating'>" + response.Ratings[1].Source + ": " + response.Ratings[1].Value + "</span>");
 			$("#movieRating").append("<span id='mcRating'>" + response.Ratings[2].Source + ": " + response.Ratings[2].Value + "</span>");
 		})
+
 	}
 
 	function displayGIPHY(movieName) {
@@ -37,6 +41,18 @@ $(document).ready(function() {
 		$("#moviesSection").html(rowDiv);
 	}
 
+	function randomColor() {
+		var characters = "123456789ABCDEF";
+		console.log(characters.length);
+		var color = "#";
+		for (var i = 0; i < 6; i++) {
+			color += characters[Math.floor(Math.random() * characters.length)];
+
+		}
+		console.log(color);
+		return color;
+	}
+
 	loading();
 
 	$("#addMovie").click(function(event) {
@@ -46,11 +62,13 @@ $(document).ready(function() {
 	})
 
 	$(document).on("click", ".movieButtons", function(){
+		$("body").css("background-color", randomColor());
 		displayRating($(this).attr("data-name"));
 		displayGIPHY($(this).attr("data-name"));
 	})
 
 	$(document).on("click", ".gif", function(){
+		
 		var state = $(this).attr("data-state");
 		if (state === "still") {
 			$(this).attr("src", $(this).attr("data-animated")).attr("data-state", "animated");
