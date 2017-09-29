@@ -43,13 +43,11 @@ $(document).ready(function() {
 
 	function randomColor() {
 		var characters = "123456789ABCDEF";
-		console.log(characters.length);
 		var color = "#";
 		for (var i = 0; i < 6; i++) {
 			color += characters[Math.floor(Math.random() * characters.length)];
 
 		}
-		console.log(color);
 		return color;
 	}
 
